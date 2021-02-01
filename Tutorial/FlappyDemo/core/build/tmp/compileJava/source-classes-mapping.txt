@@ -1,0 +1,16 @@
+it/sagatun/game/states/State.java
+ it.sagatun.game.states.State
+it/sagatun/game/FlappyDemo.java
+ it.sagatun.game.FlappyDemo
+it/sagatun/game/sprites/Animation.java
+ it.sagatun.game.sprites.Animation
+it/sagatun/game/states/PlayState.java
+ it.sagatun.game.states.PlayState
+it/sagatun/game/sprites/Tube.java
+ it.sagatun.game.sprites.Tube
+it/sagatun/game/states/MenuState.java
+ it.sagatun.game.states.MenuState
+it/sagatun/game/states/GameStateManager.java
+ it.sagatun.game.states.GameStateManager
+it/sagatun/game/sprites/Bird.java
+ it.sagatun.game.sprites.Bird

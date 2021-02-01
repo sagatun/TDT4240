@@ -1,0 +1,4 @@
+it/sagatun/game/AndroidLauncher.java
+ it.sagatun.game.AndroidLauncher
+it/sagatun/game/BuildConfig.java
+ it.sagatun.game.BuildConfig

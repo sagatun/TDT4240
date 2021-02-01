@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FlappyDemo.iml" filepath="$PROJECT_DIR$/.idea/modules/FlappyDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android/FlappyDemo.android.iml" filepath="$PROJECT_DIR$/.idea/modules/android/FlappyDemo.android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/FlappyDemo.core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/FlappyDemo.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/desktop/FlappyDemo.desktop.iml" filepath="$PROJECT_DIR$/.idea/modules/desktop/FlappyDemo.desktop.iml" />
+    </modules>
+  </component>
+</project>

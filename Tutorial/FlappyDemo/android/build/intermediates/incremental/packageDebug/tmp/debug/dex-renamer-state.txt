@@ -1,0 +1,4 @@
+#Mon Feb 01 09:16:08 CET 2021
+base.0=/Users/eriksagatun/projects/TDT4240/FlappyDemo/android/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
