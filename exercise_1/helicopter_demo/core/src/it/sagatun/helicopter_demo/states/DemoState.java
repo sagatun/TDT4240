@@ -40,6 +40,9 @@ public class DemoState extends State {
         for (int i = 0; i < ufoCount; i++) {
             ufos.add(new Ufo(rand.nextInt((sw - 2) + 1), rand.nextInt((sh - 2) + 1)));
         }
+        for(Ufo f: ufos){
+            helicopter.attach(f);
+        }
     }
 
     @Override
@@ -53,6 +56,7 @@ public class DemoState extends State {
         int i = 0;
         for (Ufo ufo : ufos) {
             if (ufo.collides(helicopter.getHelicopterBounds())) {
+                helicopter.notifyUpdate();                            //Observator updates when helicopter crashes in ufo
                 helicopter.flipTexture();
                 ufo.negateSpeed();
             }

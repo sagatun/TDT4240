@@ -1,17 +1,19 @@
 package it.sagatun.helicopter_demo.sprites;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.utils.Timer;
 
 import java.util.Random;
 
 import it.sagatun.helicopter_demo.HelicopterDemo;
+import it.sagatun.helicopter_demo.Observer;
 
-public class Ufo {
+public class Ufo implements Observer {
     private Vector3 position;
-
 
     private float sw, sh, uw, uh, speedX, speedY, countDownX, countDownY;                           // sw = screen width, sh = screen height, uw = ufo width, uh = ufo height
 
@@ -21,12 +23,17 @@ public class Ufo {
 
     private Random rand;
 
+    private Texture ufo;
+
+
+
+
     public Ufo(int x, int y) {
         rand = new Random();
 
         position = new Vector3(x, y, 0);
 
-        Texture ufo = new Texture("ufo.png");
+        ufo = new Texture("ufo.png");
         ufoSprite = new Sprite(ufo);
 
 
@@ -42,6 +49,7 @@ public class Ufo {
 
         speedX = rand.nextFloat() * 5;
         speedY = rand.nextFloat() * 5;
+
     }
 
     public boolean collides(Rectangle player) {
@@ -97,4 +105,30 @@ public class Ufo {
         ufoBounds.setPosition(position.x, position.y);
     }
 
+    public void updateUfoTexture(String m){
+        ufo = new Texture(m);
+        ufoSprite = new Sprite(ufo);
+    }
+
+    public void afterTimeout() {
+        Timer.schedule(new Timer.Task(){
+                           @Override
+                           public void run() {
+                               updateUfoTexture("ufo.png");
+                           }
+                       }
+                , 1       //    (delay)
+
+        );
+
+    }
+
+    @Override
+    public void update() {
+        updateUfoTexture("ufoGrr.png");
+        afterTimeout();
+
+       // ufo = ufo.toString() == "ufo.png" ? new Texture("ufoGrr.png") : new Texture("ufo.png");
+
+    }
 }

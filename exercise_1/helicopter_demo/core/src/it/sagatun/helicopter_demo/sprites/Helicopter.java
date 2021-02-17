@@ -6,14 +6,19 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import it.sagatun.helicopter_demo.HelicopterDemo;
+import it.sagatun.helicopter_demo.Observer;
+import it.sagatun.helicopter_demo.Subject;
 
-public class Helicopter {
+public class Helicopter implements Subject {
+
+    private ArrayList<Observer> observers = new ArrayList<>();
 
     private static Random rand = new Random();
-    private static final Helicopter INSTANCE = new Helicopter();    // Singleton Pattern.  Make sure only one instance of Helicopter is made.
+    private static volatile Helicopter instance = null;    // Singleton Pattern.  Make sure only one instance of Helicopter is made.
 
     private Vector3 position;
     private boolean isFlipped = false;
@@ -25,7 +30,7 @@ public class Helicopter {
 
     private Rectangle helicopterBounds;
 
-    private Helicopter() {
+    private Helicopter() {                     // private constructor because of singleton
         sw = HelicopterDemo.WIDTH;
         sh = HelicopterDemo.HEIGHT;
         position = new Vector3(rand.nextInt((int) sw - 1) + 1, rand.nextInt((int) sh - 1) + 1, 0);
@@ -44,7 +49,15 @@ public class Helicopter {
     }
 
     public static Helicopter getInstance() {
-        return INSTANCE;
+        // lazy Singleton. Only instantiate when needed
+        if(instance == null){
+            synchronized (Helicopter.class){
+                if(instance == null){
+                    instance = new Helicopter();
+                }
+            }
+        }
+        return instance;
     }
 
     public Vector3 getPosition() {
@@ -62,7 +75,6 @@ public class Helicopter {
     }
 
     public void flipTexture() {
-        System.out.println("flip");
         isFlipped = !isFlipped;
         negateSpeed();
     }
@@ -108,5 +120,22 @@ public class Helicopter {
 
     public void dispose() {
         texture.dispose();
+    }
+
+    @Override
+    public void attach(Observer o) {
+        observers.add(o);
+    }
+
+    @Override
+    public void detach(Observer o) {
+        observers.remove(o);
+    }
+
+    @Override
+    public void notifyUpdate() {
+        for(Observer o: observers){
+            o.update();
+        }
     }
 }
