@@ -10,7 +10,6 @@ import java.util.Random;
 import it.sagatun.helicopter_demo.HelicopterDemo;
 
 public class Ufo {
-    public static final int GRAVITY = -5;
     private Vector3 position;
 
 

@@ -6,31 +6,34 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 
+import java.util.Random;
+
 import it.sagatun.helicopter_demo.HelicopterDemo;
 
 public class Helicopter {
-    public static final int GRAVITY = -5;
+
+    private static Random rand = new Random();
+    private static final Helicopter INSTANCE = new Helicopter();    // Singleton Pattern.  Make sure only one instance of Helicopter is made.
+
     private Vector3 position;
-    private Vector3 velocity;
     private boolean isFlipped = false;
 
     private float sw, sh, hw, hh, speedX, speedY;
 
-    //private Texture helicopter;
     private Texture texture;
     private Animation helicopterAnimation;
 
     private Rectangle helicopterBounds;
 
-    public Helicopter(int x, int y) {
-        position = new Vector3(x, y, 0);
-        velocity = new Vector3(0, 0, 0);
-
-        //helicopter = new Texture("helicopter_1.png");
-        texture = new Texture("helicopter.png");
-        helicopterAnimation = new Animation(new TextureRegion((texture)), 8, 0.5f);
+    private Helicopter() {
         sw = HelicopterDemo.WIDTH;
         sh = HelicopterDemo.HEIGHT;
+        position = new Vector3(rand.nextInt((int) sw - 1) + 1, rand.nextInt((int) sh - 1) + 1, 0);
+
+        texture = new Texture("helicopter.png");
+        helicopterAnimation = new Animation(new TextureRegion((texture)), 8, 0.5f);
+
+
         hw = texture.getWidth() / 8;
         hh = texture.getHeight();
 
@@ -38,6 +41,10 @@ public class Helicopter {
 
         speedX = sw / 100;
         speedY = sh / 100;
+    }
+
+    public static Helicopter getInstance() {
+        return INSTANCE;
     }
 
     public Vector3 getPosition() {
@@ -60,7 +67,7 @@ public class Helicopter {
         negateSpeed();
     }
 
-    public boolean getIsFlipped(){
+    public boolean getIsFlipped() {
         return isFlipped;
     }
 
@@ -79,7 +86,7 @@ public class Helicopter {
     public void update(float dt) {
         helicopterAnimation.update(dt);
 
-        if(position.x > sw - (hw - hw / 2) || position.x < 0 - hw / 2){
+        if (position.x > sw - (hw - hw / 2) || position.x < 0 - hw / 2) {
             flipTexture();
         }
 

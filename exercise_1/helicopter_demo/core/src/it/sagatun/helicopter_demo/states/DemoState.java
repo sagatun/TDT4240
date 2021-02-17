@@ -34,7 +34,7 @@ public class DemoState extends State {
         font = new BitmapFont();
         font.getData().scale(sw / 500);
 
-        helicopter = new Helicopter(rand.nextInt(sw - 1) + 1, rand.nextInt(sh - 1) + 1);
+        helicopter = Helicopter.getInstance();
         ufos = new Array<>();
 
         for (int i = 0; i < ufoCount; i++) {
