@@ -2,6 +2,17 @@
 
 # Øving 2
 
+Start Android Studio. Velg "Åpne" og naviger til mappen med øvingsoppgave. Velg "build.gradle" - oppdater hvis spurt.
+Kan kjøres i Android Emulator - dessverre ikke full skjerm..
+
+Kan kjøres som desktop-app med ferdigdefinert oppløsning.
+
+Grafikk fra www.opengameart.org
+
+https://opengameart.org/content/sky-background
+https://opengameart.org/content/helicopter-2
+https://opengameart.org/content/enemy-game-character-ufo-spaceship
+
 ## Step 1
 
 Done
@@ -30,16 +41,3 @@ Ufo til observatøren - som er helikopteret i dette eksemplet. Denne Observatør
 c)
 Fordelen er at jeg får sendt en beskjed om endring til alle ufoene. Og det er uavhenigig av antall objekter jeg velger. Jeg kan dessuten i framtiden legge inn andre objekter som observatører. Fugler kanskje.
 Ulempen er at jeg må behandle alle objekter likt. Jeg kan ikke la noen objekter ha oppførsel med unike metoder når en event trigges.
-
-# Øving 1
-
-Start Android Studio. Velg "Åpne" og naviger til mappen med øvingsoppgave. Velg "build.gradle" - oppdater hvis spurt.
-Kan kjøres i Android Emulator - dessverre ikke full skjerm..
-
-Kan kjøres som desktop-app med ferdigdefinert oppløsning.
-
-Grafikk fra www.opengameart.org
-
-https://opengameart.org/content/sky-background
-https://opengameart.org/content/helicopter-2
-https://opengameart.org/content/enemy-game-character-ufo-spaceship
